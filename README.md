@@ -1,10 +1,8 @@
-# LokaverkefniGSO
-
 -------------------------|CREATE TABLES|-------------------------
 
 CREATE TABLE Membership
 (
-	Mem_Num INT NOT NULL,
+	Mem_Num INT NOT NULL AUTO_INCREMENT,
 	Mem_Fname VARCHAR(255),
 	Mem_Lname VARCHAR(255),
 	Mem_Street VARCHAR(255),
@@ -17,15 +15,16 @@ CREATE TABLE Membership
 
 CREATE TABLE Rental
 (
-	Rent_Num INT NOT NULL,
+	Rent_Num INT NOT NULL AUTO_INCREMENT,
 	Rent_Date VARCHAR(255),
-	PRIMARY (Rent_Num)
+	Mem_Num INT,
+	PRIMARY KEY(Rent_Num),
 	FOREIGN KEY (Mem_Num) REFERENCES Membership(Mem_Num)
 );
 
 CREATE TABLE Price
 (
-	Price_Code INT NOT NULL,
+	Price_Code INT NOT NULL AUTO_INCREMENT,
 	Price_Description VARCHAR(255),
 	Price_RentFee DOUBLE,
 	Price_DailyLateFee DOUBLE,
@@ -34,31 +33,36 @@ CREATE TABLE Price
 
 CREATE TABLE Movie
 (
-	Movie_Num INT NOT NULL,
+	Movie_Num INT NOT NULL AUTO_INCREMENT,
 	Movie_Title VARCHAR(255),
 	Movie_Year YEAR,
-	Movie_Cost DOUBLE 
+	Movie_Cost DOUBLE,
 	Movie_Genre VARCHAR(255),
+	Price_Code INT,
 	PRIMARY KEY (Movie_Num),
 	FOREIGN KEY (Price_Code) REFERENCES Price(Price_Code)
 );
 
 CREATE TABLE Video
 (
-	Vid_Num INT NOT NULL,
+	Vid_Num INT NOT NULL AUTO_INCREMENT,
 	Vid_InDate VARCHAR(255),
+	Movie_Num INT,
 	PRIMARY KEY (Vid_Num),
 	FOREIGN KEY (Movie_Num) REFERENCES Movie(Movie_Num) 
 );
 
 CREATE TABLE DetailRental
 (
-	Rent_Num PRIMARY KEY FOREIGN KEY
-	Vid_Num PRIMARY KEY FOREIGN KEY
+	Rent_Num INT NOT NULL,
+	Vid_Num INT NOT NULL,
 	Detail_Fee DOUBLE,
 	Detail_DueDate VARCHAR(255),
 	Detail_ReturnDate VARCHAR(255),
-	Detail_DailyLateFee DOUBLE
+	Detail_DailyLateFee DOUBLE,
+	PRIMARY KEY (Vid_Num, Rent_Num),
+	FOREIGN KEY (Rent_Num) REFERENCES Rental(Rent_Num),
+	FOREIGN KEY (Vid_Num) REFERENCES Video(Vid_Num)
 );
 
 -------------------------|INSERT INTO|-------------------------
@@ -122,3 +126,10 @@ VALUES ('Standard', 2, 1),
 ('New Release', 3.5, 3),
 ('Discount', 1.5, 1),
 ('Weekly Spcecial', 1, 0.5);
+
+INSERT INTO DetailRental (Rent_Num, Vid_Num, Detail_Fee, Detail_DueDate, Detail_ReturnDate, Detail_DailyLateFee)
+VALUES (1, 1, 7, 5.5, 6, 2.5),
+(2, 2, 9, 5, 8.5, 9),
+(3, 3, 5, 3, 1.5, 7.5),
+(4, 4, 9.5, 3, 6, 8),
+(5, 5, 8, 4, 10, 6);

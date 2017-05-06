@@ -47,7 +47,8 @@ on Movie.Price_Code = Price.Price_Code;
 SELECT Movie.Movie_Genre, AVG(price.Price_Rentfee)
 FROM Movie
 INNER JOIN price
-on Movie.Price_Code = Price.Price_Code;
+on Movie.Price_Code = Price.Price_Code
+GROUP BY Movie_Genre;
 
 15.
 SELECT Movie_Title, Movie_Year, Movie_Cost

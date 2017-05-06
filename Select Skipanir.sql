@@ -24,7 +24,7 @@ FROM Movie;
 
 8.
 SELECT Movie_Genre, COUNT(Movie_Genre) AS Number_Of_Movies
-From Movie
+FROM Movie
 GROUP BY Movie_Genre;
 
 9.
@@ -34,8 +34,20 @@ FROM Movie
 
 10.
 SELECT Movie_Genre, AVG(Movie_Genre) AS Average_Cost
-From Movie
+FROM Movie
 GROUP BY Movie_Genre;
+
+11.
+SELECT Movie.Movie_Title, Movie.Movie_Genre,  Price.Price_Description, Price.Price_RENTFEE
+FROM Movie
+INNER JOIN Price
+on Movie.Price_Code = Price.Price_Code;
+
+12.
+SELECT Movie.Movie_Genre, AVG(price.Price_Rentfee)
+FROM Movie
+INNER JOIN price
+on Movie.Price_Code = Price.Price_Code;
 
 15.
 SELECT Movie_Title, Movie_Year, Movie_Cost

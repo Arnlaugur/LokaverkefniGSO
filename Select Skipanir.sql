@@ -53,6 +53,7 @@ SELECT Movie.Movie_Title, Movie.Movie_Year, ROUND( Movie.Movie_Cost / Price.Pric
 FROM Movie
 INNER JOIN Price ON Movie.Price_Code = Price.Price_code;
 
+14.
 SELECT Movie_Title, Movie_Year
 FROM Movie
 WHERE Price_Code LIKE '%';
@@ -62,10 +63,6 @@ SELECT Movie_Title, Movie_Year, Movie_Cost
 FROM Movie
 WHERE Movie_Cost > 44.99 AND Movie_Cost < 49.99;
 
-24.
-ALTER TABLE Detail_Rental
-ADD Detail_DaysLate INT(3);
-
 16.
 SELECT Movie.Movie_Title, Movie.Movie_Year, Price.Price_Description, Price.Price_RentFee, Movie.Movie_Genre
 FROM Price
@@ -74,13 +71,27 @@ WHERE Movie.Movie_Genre =  "FAMILY"
 OR Movie.Movie_Genre =  "COMEDY"
 OR Movie.Movie_Genre =  "DRAMA";
 
+17.
+SELECT Min(Mem_Balance) AS Minimum_Balance, Max(Mem_Balance) AS Maxmimum_Balance, AVG(Mem_Balance) AS Average_Balance
+FROM Membership;
+
 18.
 SELECT CONCAT(Mem_Fname,' ',Mem_Lname) AS Membership_Name, CONCAT(Mem_Street,', ',Mem_City,', ',Mem_State,', ',Mem_Zip) AS Membership_Address
 FROM Membership;
 
 19.
-SELECT RENTAL.RENT_NUM, RENT_DATE, VIDEO.VID_NUM, MOVIE_TITLE, DETAIL_DUEDATE, DETAIL_RETURNDATE FROM RENTAL, DETAILRENTAL, VIDEO, MOVIE WHERE RENTAL.RENT_NUM = DETAILRENTAL.RENT_NUM AND DETAILRENTAL.VID_NUM = VIDEO.VID_NUM AND VIDEO.MOVIE_NUM = MOVIE.MOVIE_NUM ORDER BY RENTAL.RENT_NUM, MOVIE_TITLE;
+SELECT RENTAL.RENT_NUM, RENT_DATE, VIDEO.VID_NUM, MOVIE_TITLE, DETAIL_DUEDATE, DETAIL_RETURNDATE
+FROM RENTAL, DETAILRENTAL, VIDEO, MOVIE
+WHERE RENTAL.RENT_NUM = DETAILRENTAL.RENT_NUM AND DETAILRENTAL.VID_NUM = VIDEO.VID_NUM AND VIDEO.MOVIE_NUM = MOVIE.MOVIE_NUM ORDER BY RENTAL.RENT_NUM, MOVIE_TITLE;
 
-17.
-SELECT Min(Mem_Balance) AS Minimum_Balance, Max(Mem_Balance) AS Maxmimum_Balance, AVG(Mem_Balance) AS Average_Balance
-FROM Membership;
+24.
+ALTER TABLE Detail_Rental
+ADD Detail_DaysLate INT(3);
+
+
+
+
+
+
+
+

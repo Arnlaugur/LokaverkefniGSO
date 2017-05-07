@@ -40,14 +40,12 @@ GROUP BY Movie_Genre;
 11.
 SELECT Movie.Movie_Title, Movie.Movie_Genre,  Price.Price_Description, Price.Price_RENTFEE
 FROM Movie
-INNER JOIN Price
-on Movie.Price_Code = Price.Price_Code;
+INNER JOIN Price ON Movie.Price_Code = Price.Price_Code;
 
 12.
 SELECT Movie.Movie_Genre, AVG(price.Price_Rentfee)
 FROM Movie
-INNER JOIN price
-on Movie.Price_Code = Price.Price_Code
+INNER JOIN price ON Movie.PRICE_CODE = Price.PRICE_CODE
 GROUP BY Movie_Genre;
 
 15.

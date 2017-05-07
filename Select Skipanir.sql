@@ -48,6 +48,9 @@ FROM Movie
 INNER JOIN price ON Movie.PRICE_CODE = Price.PRICE_CODE
 GROUP BY Movie_Genre;
 
+13.
+SELECT Movie.Movie_Title, 
+
 15.
 SELECT Movie_Title, Movie_Year, Movie_Cost
 FROM Movie

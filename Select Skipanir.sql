@@ -61,10 +61,12 @@ ALTER TABLE Detail_Rental
 ADD Detail_DaysLate INT(3);
 
 16.
-SELECT Movie_Title, Movie_Year, Price_Description, Price_RentFee, Movie_Genre
+SELECT Movie.Movie_Title, Movie.Movie_Year, Price.Price_Description, Price.Price_RentFee, Movie.Movie_Genre
 FROM Price
 INNER JOIN Movie ON Price.Price_Code = Movie.Price_Code
-WHERE Movie_Genre = "FAMILY", "COMEDY", "DRAMA"; 
+WHERE Movie.Movie_Genre =  "FAMILY"
+OR Movie.Movie_Genre =  "COMEDY"
+OR Movie.Movie_Genre =  "DRAMA";
 
 18.
 SELECT CONCAT(Mem_Fname,' ',Mem_Lname) AS Membership_Name, CONCAT(Mem_Street,', ',Mem_City,', ',Mem_State,', ',Mem_Zip) AS Membership_Address

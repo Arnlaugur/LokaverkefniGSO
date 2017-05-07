@@ -131,3 +131,23 @@ VALUES (1, 1, 7, 5.5, 6, 2.5),
 (3, 3, 5, 3, 1.5, 7.5),
 (4, 4, 9.5, 3, 6, 8),
 (5, 5, 8, 4, 10, 6);
+
+UPDATE DetailRental
+SET Detail_DueDate = '04-MAR-09', Detail_ReturnDate = '09-MAR-09'
+WHERE Rent_Num = 1;
+
+UPDATE DetailRental
+SET Detail_DueDate = '06-MAR-09', Detail_ReturnDate = '09-MAR-09'
+WHERE Rent_Num = 2;
+
+UPDATE DetailRental
+SET Detail_DueDate = '06-MAR-09', Detail_ReturnDate = '09-MAR-09'
+WHERE Rent_Num = 3;
+
+UPDATE DetailRental
+SET Detail_DueDate = '06-MAR-09', Detail_ReturnDate = '07-MAR-09'
+WHERE Rent_Num = 4;
+
+UPDATE DetailRental
+SET Detail_DueDate = '06-MAR-09', Detail_ReturnDate = '07-MAR-09'
+WHERE Rent_Num = 5;

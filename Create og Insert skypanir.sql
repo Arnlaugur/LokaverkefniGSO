@@ -18,7 +18,15 @@ INSERT INTO Rental (Rent_Date) VALUES ('01-MAR-09'), ('01-MAR-09'), ('02-MAR-09'
 
 INSERT INTO Video (Vid_InDate) VALUES ('18-JUN-08'), ('18-JUN-08'), ('18-JUN-08'), ('22-JAN-07'), ('22-JAN-07'), ('02-MAR-09'), ('02-MAR-09'), ('02-MAR-09'), ('02-MAR-09'), ('21-OCT-08'), ('21-OCT-08'), ('14-FEB-09'), ('25-JAN-07'), ('28-JAN-06'), ('28-JAN-06'), ('30-JUL-08'), ('30-JUL-08');
 
-INSERT INTO Movie (Movie_Title, Movie_Year, Movie_Cost, Movie_Genre) VALUES ('The Cesar Family Christmas', 2007, 39.95, 'FAMILY'), ('Smokey Mountain Wildlife', 2004, 59.95, 'ACTION'), ('Richard Goodhope', 2008, 59.95, 'DRAMA'), ('Beatnik Fever', 2007, 29.95, 'COMEDY'), ('Constant Companion', 2008, 89.95, 'DRAMA'), ('Where Hope Dies', 1998, 25.49, 'DRAMA'), ('Time to Burn', 2005, 45.49, 'ACTION'), ('What He Doesn't Know', 2006, 58.29, 'COMEDY');
+INSERT INTO Movie (Movie_Title, Movie_Year, Movie_Cost, Movie_Genre, Price_Code)
+VALUES ('The Cesar Family Christmas', 2007, 39.95, 'FAMILY', 2),
+('Smokey Mountain Wildlife', 2004, 59.95, 'ACTION', 1),
+('Richard Goodhope', 2008, 59.95, 'DRAMA', 2),
+('Beatnik Fever', 2007, 29.95, 'COMEDY', 2),
+('Constant Companion', 2008, 89.95, 'DRAMA', 2),
+('Where Hope Dies', 1998, 25.49, 'DRAMA', 3),
+('Time to Burn', 2005, 45.49, 'ACTION', 1),
+('What He Doesn't Know', 2006, 58.29, 'COMEDY', 1);
 
 INSERT INTO Price (Price_Description, Price_RentFee, Price_DailyLateFee) VALUES ('Standard', 2, 1), ('New Release', 3.5, 3), ('Discount', 1.5, 1), ('Weekly Spcecial', 1, 0.5);
 

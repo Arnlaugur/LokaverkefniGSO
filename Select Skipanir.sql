@@ -53,6 +53,10 @@ SELECT Movie.Movie_Title, Movie.Movie_Year, ROUND( Movie.Movie_Cost / Price.Pric
 FROM Movie
 INNER JOIN Price ON Movie.Price_Code = Price.Price_code;
 
+SELECT Movie_Title, Movie_Year
+FROM Movie
+WHERE Price_Code LIKE '%';
+
 15.
 SELECT Movie_Title, Movie_Year, Movie_Cost
 FROM Movie

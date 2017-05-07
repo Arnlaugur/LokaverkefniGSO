@@ -19,7 +19,7 @@ FROM Movie
 WHERE Movie_Cost < 50 AND Movie_Genre LIKE "ACTION" OR Movie_Genre LIKE "COMEDY";
 
 7.
-SELECT Movie_Num, CONCAT(Movie_Title,', ',Movie_Year,', ',Movie_Genre) AS Movie_Description
+SELECT Movie_Num, CONCAT(Movie_Title,', (',Movie_Year,') ',Movie_Genre) AS Movie_Description
 FROM Movie;
 
 8.
@@ -59,3 +59,12 @@ WHERE Movie_Cost > 44.99 AND Movie_Cost < 49.99;
 24.
 ALTER TABLE Detail_Rental
 ADD Detail_DaysLate INT(3);
+
+16.
+SELECT Movie_Title, Movie_Year, Price_Description, Price_RentFee, Movie_Genre
+FROM Price
+INNER JOIN Movie ON Price.Price_Code = Movie.Price_Code; 
+
+18.
+SELECT CONCAT(Mem_Fname,' ',Mem_Lname) AS Membership_Name, CONCAT(Mem_Street,', ',Mem_City,', ',Mem_State,', ',Mem_Zip) AS Membership_Address
+FROM Membership;

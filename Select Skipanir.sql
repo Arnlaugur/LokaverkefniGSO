@@ -49,7 +49,9 @@ INNER JOIN price ON Movie.PRICE_CODE = Price.PRICE_CODE
 GROUP BY Movie_Genre;
 
 13.
-SELECT Movie.Movie_Title, 
+SELECT Movie.Movie_Title, Movie.Movie_Year, ROUND( Movie.Movie_Cost / Price.Price_Rentfee, 2 ) 
+FROM Movie
+INNER JOIN Price ON Movie.Price_Code = Price.Price_code;
 
 15.
 SELECT Movie_Title, Movie_Year, Movie_Cost

@@ -71,3 +71,7 @@ OR Movie.Movie_Genre =  "DRAMA";
 18.
 SELECT CONCAT(Mem_Fname,' ',Mem_Lname) AS Membership_Name, CONCAT(Mem_Street,', ',Mem_City,', ',Mem_State,', ',Mem_Zip) AS Membership_Address
 FROM Membership;
+
+17.
+SELECT Min(Mem_Balance) AS Minimum_Balance, Max(Mem_Balance) AS Maxmimum_Balance, AVG(Mem_Balance) AS Average_Balance
+FROM Membership;
